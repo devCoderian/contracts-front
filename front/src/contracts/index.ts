@@ -1,4 +1,5 @@
 import { AbiItem } from "web3-utils";
+import Web3 from "web3";
 
 //AbiItem을 가져오는 다른 방법 확인하기
 
@@ -705,5 +706,17 @@ const saleAnimalTokenAbi: AbiItem[] = [
     }
 ];
 
-const minAnimalTokenAddress = "";
-const saleAnimalTokenAddress = "";
+const mintAnimalTokenAddress = "0x199fc263b2049535625EefB11F834c77a4cCa753";
+const saleAnimalTokenAddress = "0x3cAe1359fc2db97E300D385Dd64fd14F67A89fd6";
+
+export const web3 = new Web3(window.ethereum);
+
+export const mintAnimalTokenContract = new web3.eth.Contract(
+    mintAnimalTokenAbi,
+    mintAnimalTokenAddress
+)
+
+export const saleAnimalTokenContract = new web3.eth.Contract(
+    saleAnimalTokenAbi,
+    saleAnimalTokenAddress,
+)

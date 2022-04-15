@@ -37,11 +37,9 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
     }
   };
   
-
   useEffect(() => {
     
     if(!account) return;  
-    
     getAnimalTokens();
     
   },[]);

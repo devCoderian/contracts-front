@@ -16,7 +16,7 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
       const balanceLength = await mintAnimalTokenContract.methods
       .tokenOfOwnerByIndex(account, 1)
       .call();
-
+      
       const tempAnimalCardArray = [];
 
       for(let i = 0; i<parseInt(balanceLength, 10); i++){
@@ -41,14 +41,16 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
   useEffect(() => {
     
     if(!account) return;  
+    
     getAnimalTokens();
-
+    
   },[]);
 
   useEffect(() => {
     console.log(animalCardArray)
   }, [animalCardArray]);
 
+  //그리드를 통해 MYNFT 확인
   return (
     <Grid templateColumns = "repeat(4, 1fr)" gap={8}>
       {animalCardArray &&

@@ -22,6 +22,8 @@ const Main: FC<MainProps> = ({ account }) => {
 
             console.log(res); 
 
+            //계좌 조회후 가장 최근의 인덱스를 조회해서
+            //인덱스에 해당하는 애니멀 타입을 가져와서
             if(res.status){
                 const balanceLength = await mintAnimalTokenContract.methods
                 .balanceOf(account)
@@ -52,7 +54,7 @@ const Main: FC<MainProps> = ({ account }) => {
         {newAnimalType ? (
             <AnimalCard animalType={newAnimalType} /> 
         ) : (
-        <Text>Let'mint Animal</Text>
+        <Text>Let'mint</Text>
         )}
     </Box>
     <Button mt={4} size="sm" colorScheme="blue" onClick={onClickMint}> 

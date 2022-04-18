@@ -1,13 +1,6 @@
-import { AbiItem } from "web3-utils";
 import Web3 from "web3";
+import { AbiItem } from "web3-utils";
 
-//AbiItem을 가져오는 다른 방법 확인하기
-
-//Abi 정의 
-/* const saleAnimalTokenAbi: AbiItem[] = [
-    //리믹스에서 Abi 확인하기
-];
-*/
 const mintAnimalTokenAbi: AbiItem[] = [
     {
         inputs: [],
@@ -489,7 +482,6 @@ const mintAnimalTokenAbi: AbiItem[] = [
         type: "function",
     },
 ];
-
 const saleAnimalTokenAbi: AbiItem[] = [
     {
         inputs: [
@@ -618,8 +610,8 @@ const saleAnimalTokenAbi: AbiItem[] = [
     },
 ];
 
-const mintAnimalTokenAddress = "0x7a005Bf219894D2bE92dBf151009a9f3d490174a";
-const saleAnimalTokenAddress = "0x1d1Af30B800956a1bEcF5270F4801e0132C0bDe8";
+export const mintAnimalTokenAddress = "0x4E845fDB266c23185778ec3e466F6C5eaB22eAB6";
+export const saleAnimalTokenAddress = "0x65cE40a45c840DB37d04D2CdD188CbECBEbC1B27";
 
 export const web3 = new Web3(window.ethereum);
 

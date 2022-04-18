@@ -28,7 +28,7 @@ const App: FC = () => {
   },[]);
 
   useEffect(() =>{
-    console.log(account);
+    console.log('account0',account);
   },[account]);
 
     return( 

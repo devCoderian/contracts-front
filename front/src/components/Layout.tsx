@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 const Layout:FC = ({children}) => {
   return (
     <Stack h="100vh">
-        <Flex bg="purple.200" 
+        {/* header start */}
+        <Flex bg="blue.200" 
         p={4} 
         justifyContent="space-around"
         alignItems={"center"}>
             <Box>
-                <Text fontWeight="bold">h662-Animals</Text>
+                <Text fontWeight="bold">openMarket</Text>
             </Box>
             <Link to = "/">
                 <Button size={"sm"} colorScheme="blue">
@@ -23,6 +24,8 @@ const Layout:FC = ({children}) => {
                 </Button>
             </Link>
         </Flex>
+        {/* header end */}
+        {/* main start */}
     <Flex
         direction={"column"}
         h="full"
@@ -31,6 +34,7 @@ const Layout:FC = ({children}) => {
     > 
     {children}
     </Flex>
+    {/* main end */}
     </Stack>
   )
 }

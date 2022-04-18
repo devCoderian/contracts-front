@@ -20,7 +20,12 @@ const Layout:FC = ({children}) => {
             </Link>
             <Link to ="my-animal">
                 <Button size="xs" colorScheme={"red"}>
-                    MyAnimal
+                    MyNFT
+                </Button>
+            </Link>
+            <Link to ="sale-animal">
+                <Button size="xs" colorScheme={"red"}>
+                    BrowseNFT
                 </Button>
             </Link>
         </Flex>

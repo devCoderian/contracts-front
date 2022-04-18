@@ -24,6 +24,10 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
       const balanceLength = await mintAnimalTokenContract.methods
       .balanceOf(account)
       .call();
+
+      //0일 경우 실행
+      if(balanceLength === "0") return;
+
       const tempAnimalCardArray = [];
 
       //민팅했을때와는 다르게 제일 최근민팅이 아니라 들고 오는게 아니라 for문 돌려서 전체 민팅한 갯수 가져오기
@@ -74,8 +78,10 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
 
   useEffect(() => {    
     if(!account) return;  
+    
     getAnimalTokens();
     getIsApprovedForAll();
+
   },[account]);
 
   useEffect(() => {

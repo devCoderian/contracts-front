@@ -610,6 +610,8 @@ const saleAnimalTokenAbi: AbiItem[] = [
     },
 ];
 
+//리팩토링 이후 주소값, Abi값 수정
+
 export const mintAnimalTokenAddress = "0x4E845fDB266c23185778ec3e466F6C5eaB22eAB6";
 export const saleAnimalTokenAddress = "0x65cE40a45c840DB37d04D2CdD188CbECBEbC1B27";
 

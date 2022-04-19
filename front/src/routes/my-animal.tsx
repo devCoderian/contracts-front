@@ -24,7 +24,7 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
       const balanceLength = await mintAnimalTokenContract.methods
       .balanceOf(account)
       .call();
-
+      
       //0일 경우 실행
       if(balanceLength === "0") return;
 
@@ -32,7 +32,6 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
 
       //민팅했을때와는 다르게 제일 최근민팅이 아니라 들고 오는게 아니라 for문 돌려서 전체 민팅한 갯수 가져오기
       //balanceLength가 string으로 들어오기 때문에 int형 변환
-
       // console.log(at); 
       for(let i = 0;  i< parseInt(balanceLength, 10); i++){
         //tokenId를 하나씩 가져오기 => tokenOfOwnerByIndex(주소, 인덱스 번호)로 nftId를 가져온다.
@@ -50,13 +49,10 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
         .call();
 
         console.log('animalPrice', animalPrice);
-        
         // tempAnimalCardArray.push(animalType);
         tempAnimalCardArray.push({animalPrice, animalType, animalTokenId});
       }
-      
       setAnimalCardArray(tempAnimalCardArray);
-      
     }catch(error){
       console.error(error);
     }
@@ -64,9 +60,9 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
   
   const getIsApprovedForAll = async () => {
     try {
+      
       //위임 권한 확인 함수
       const response = await mintAnimalTokenContract.methods.isApprovedForAll(account, saleAnimalTokenAddress).call();
-
       console.log('위임 결과 확인', response);
       if(response){
         setSaleStatus(response);
@@ -78,7 +74,6 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
 
   useEffect(() => {    
     if(!account) return;  
-    
     getAnimalTokens();
     getIsApprovedForAll();
 
@@ -121,7 +116,7 @@ const MyAnimal:FC<MyAnimalProps> = ({account}) => {
         animalCardArray.map((v, i) => {
           console.log('animalCardArray', v);  
         // return <AnimalCard key={i} animalType={v} />;
-        //AnimalCard ->  MyAnimalCard => type Interface:string -> IMyAnimalCard 변경, animalCardArray 변경
+        // AnimalCard ->  MyAnimalCard => type Interface:string -> IMyAnimalCard 변경, animalCardArray 변경
           return (<MyAnimalCard 
                   key = {i}
                   animalTokenId = {v.animalTokenId}
